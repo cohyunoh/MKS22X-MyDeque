@@ -102,7 +102,17 @@ public class MyDeque<E>{
     }
     return returnVal;
   }
-//  public E removeLast(){ }
+
+  public E removeLast(){
+    E returnVal = data[end];
+    data[end] = null;
+    if(end - 1 < 0){
+      end = data.length - 1;
+    }else{
+      end -= 1;
+    }
+    return returnVal;
+  }
 //  public E getFirst(){ }
 //  public E getLast(){ }
 
