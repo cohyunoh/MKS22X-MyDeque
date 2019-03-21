@@ -45,5 +45,11 @@ public class tester{
     System.out.println(dec);
     System.out.println(dec.removeFirst());
     System.out.println(dec);
+    System.out.println(dec.removeLast());
+    System.out.println(dec);
+    System.out.println(dec.removeLast());
+    System.out.println(dec);
+    System.out.println(dec.removeLast());
+    System.out.println(dec);
   }
 }
