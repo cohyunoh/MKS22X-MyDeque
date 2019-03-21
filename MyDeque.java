@@ -18,7 +18,9 @@ public class MyDeque<E>{
     E[] d = (E[])new Object[size];
     data = d;
   }
-  public int size(){ }
+  public int size(){
+    return size;
+  }
   public String toString(){ }
   public void addFirst(E element){ }
   public void addLast(E element){ }
