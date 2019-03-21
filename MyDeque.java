@@ -1,5 +1,5 @@
 public class MyDeque<E>{
-  private E[] data;
+  //private E[] data;
   private int size, start, end;
 
   public MyDeque(){
@@ -8,7 +8,7 @@ public class MyDeque<E>{
     end = 0;
     @SuppressWarnings("unchecked")
     E[] d = (E[])new Object[size];
-    data = d;
+    //data = d;
   }
   public MyDeque(int initialCapacity){
     size = initialCapacity;
@@ -16,12 +16,12 @@ public class MyDeque<E>{
     end = 0;
     @SuppressWarnings("unchecked")
     E[] d = (E[])new Object[size];
-    data = d;
+    //data = d;
   }
   public int size(){
-    return size;
+    return end - start + 1;
   }
-  public String toString(){
+  public String toString(Integer[] data){
     String ans = "[ ";
     for(int i = start; i < data.length; i++){
       if(data[i] != null){
@@ -44,8 +44,11 @@ public class MyDeque<E>{
   }
   public void addFirst(E element){ }
   public void addLast(E element){ }
-  public E removeFirst(){ }
-  public E removeLast(){ }
-  public E getFirst(){ }
-  public E getLast(){ }
+//  public E removeFirst(){ }
+//  public E removeLast(){ }
+//  public E getFirst(){ }
+//  public E getLast(){ }
+  public static void main(String[] args) {
+
+  }
 }
