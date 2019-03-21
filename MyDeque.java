@@ -5,12 +5,19 @@ public class MyDeque<E>{
   public MyDeque(){
     size = 10;
     start = 0;
-    end = 9;
+    end = 0;
     @SuppressWarnings("unchecked")
     E[] d = (E[])new Object[size];
     data = d;
   }
-  public MyDeque(int initialCapacity){  }
+  public MyDeque(int initialCapacity){
+    size = initialCapacity;
+    start = 0;
+    end = 0;
+    @SuppressWarnings("unchecked")
+    E[] d = (E[])new Object[size];
+    data = d;
+  }
   public int size(){ }
   public String toString(){ }
   public void addFirst(E element){ }
