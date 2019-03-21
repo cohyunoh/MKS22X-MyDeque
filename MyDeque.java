@@ -3,23 +3,23 @@ public class MyDeque<E>{
   private int size, start, end;
 
   public MyDeque(){
-    size = 10;
+    size =  0;
     start = 0;
     end = 0;
     @SuppressWarnings("unchecked")
-    E[] d = (E[])new Object[size];
+    E[] d = (E[])new Object[10];
     data = d;
   }
   public MyDeque(int initialCapacity){
-    size = initialCapacity;
+    size = 0;
     start = 0;
     end = 0;
     @SuppressWarnings("unchecked")
-    E[] d = (E[])new Object[size];
+    E[] d = (E[])new Object[initialCapacity];
     data = d;
   }
   public int size(){
-    return end - start + 1;
+    return size;
   }
   public String toString(){
     String ans = "[ ";
@@ -42,7 +42,18 @@ public class MyDeque<E>{
     ans += "]";
     return ans;
   }
-  public void addFirst(E element){ }
+  public void addFirst(E element){
+    if(size)
+    int index = -1;
+    if(start - 1 < 0){
+      index = data.length - 1;
+    }else{
+      index = start - 1;
+    }
+    for(int i = index; i >=0; i--){
+      if()
+    }
+  }
   public void addLast(E element){ }
 //  public E removeFirst(){ }
 //  public E removeLast(){ }
