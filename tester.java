@@ -23,11 +23,15 @@ public class tester{
   public static void main(String[] args) {
     Integer[] ary = {2,3,4,5,null,1};
     System.out.println(toString(ary, 5, 3));
-    MyDeque<Integer> dec = new MyDeque<Integer>();
+    MyDeque<Integer> dec = new MyDeque<Integer>(3);
     System.out.println(dec);
     dec.addFirst(0);
     System.out.println(dec);
     dec.addFirst(1);
+    System.out.println(dec);
+    dec.addFirst(2);
+    System.out.println(dec);
+    dec.addFirst(3);
     System.out.println(dec);
   }
 }

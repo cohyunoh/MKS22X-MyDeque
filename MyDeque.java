@@ -47,16 +47,21 @@ public class MyDeque<E>{
       data[start] = element;
       size ++;
     }else{
+      if(size == data.length){
+        resize();
+      }
       int index = -1;
       if(start - 1 < 0){
         index = data.length - 1;
       }else{
         index = start - 1;
       }
+
       for(int i = index; i >=0; i--){
         if(data[i] == null){
           data[i] = element;
           start = i;
+          size ++;
           return ;
         }
       }
@@ -86,5 +91,7 @@ public class MyDeque<E>{
       }
     }
     data = d;
+    start = 0;
+    end = index - 1;
   }
 }
