@@ -21,7 +21,27 @@ public class MyDeque<E>{
   public int size(){
     return size;
   }
-  public String toString(){ }
+  public String toString(){
+    String ans = "[ ";
+    for(int i = start; i < data.length; i++){
+      if(data[i] != null){
+        ans += data[i];
+        if(i != end){
+          ans += ", ";
+        }
+      }
+    }
+    for(int i = 0; i < start; i++){
+      if(data[i] != null){
+        ans += data[i];
+        if(i != end){
+          ans += ", ";
+        }
+      }
+    }
+    ans += "]";
+    return ans;
+  }
   public void addFirst(E element){ }
   public void addLast(E element){ }
   public E removeFirst(){ }
