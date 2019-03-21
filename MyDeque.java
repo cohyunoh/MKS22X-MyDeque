@@ -57,6 +57,7 @@ public class MyDeque<E>{
         if(data[i] == null){
           data[i] = element;
           start = i;
+          return ;
         }
       }
     }
