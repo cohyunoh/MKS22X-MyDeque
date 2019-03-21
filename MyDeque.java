@@ -67,7 +67,30 @@ public class MyDeque<E>{
       }
     }
   }
-  public void addLast(E element){ }
+  public void addLast(E element){
+    if(size == 0){
+      data[end] = element;
+      size ++;
+    }else{
+      if(size == data.length){
+        resize();
+      }
+      int index = -1;
+      if(end + 1 >= data.length){
+        index = 0;
+      }else{
+        index = end + 1;
+      }
+      for(int i = index; i < data.length; i++){
+        if(data[i] == null){
+          data[i] = element;
+          end = i;
+          size ++;
+          return ;
+        }
+      }
+    }
+  }
 //  public E removeFirst(){ }
 //  public E removeLast(){ }
 //  public E getFirst(){ }
