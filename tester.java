@@ -21,7 +21,7 @@ public class tester{
     return ans;
   }
   public static void main(String[] args) {
-    Integer[] ary = {1, null, 2 ,3,4,5};
-    System.out.println(toString(ary, 2, 0));
+    Integer[] ary = {2,3,4,5,null,1};
+    System.out.println(toString(ary, 5, 3));
   }
 }
