@@ -33,5 +33,11 @@ public class tester{
     System.out.println(dec);
     dec.addFirst(3);
     System.out.println(dec);
+    dec.addLast(-1);
+    System.out.println(dec);
+    dec.addLast(-2);
+    System.out.println(dec);
+    dec.addLast(-3);
+    System.out.println(dec);
   }
 }
