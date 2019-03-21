@@ -113,8 +113,14 @@ public class MyDeque<E>{
     }
     return returnVal;
   }
-//  public E getFirst(){ }
-//  public E getLast(){ }
+
+  public E getFirst(){
+    return data[start];
+  }
+
+  public E getLast(){
+    return data[end];
+  }
 
   private void resize(){
     @SuppressWarnings("unchecked")
