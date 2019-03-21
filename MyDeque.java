@@ -91,7 +91,17 @@ public class MyDeque<E>{
       }
     }
   }
-//  public E removeFirst(){ }
+
+  public E removeFirst(){
+    E returnVal = data[start];
+    data[start] = null;
+    if(start + 1 >= data.length){
+      start = 0;
+    }else{
+      start += 1;
+    }
+    return returnVal;
+  }
 //  public E removeLast(){ }
 //  public E getFirst(){ }
 //  public E getLast(){ }
