@@ -67,4 +67,24 @@ public class MyDeque<E>{
 //  public E removeLast(){ }
 //  public E getFirst(){ }
 //  public E getLast(){ }
+
+  private void resize(){
+    @SuppressWarnings("unchecked")
+    E[] d = (E[])new Object[data.length * 2];
+    boolean done = false;
+    int index = 0;
+    for (int i = start; i < data.length; i++){
+      if(data[i] != null){
+        d[index] = data[i];
+        index ++;
+      }
+    }
+    for(int i = 0; i < start; i++){
+      if(data[i] != null){
+        d[index] = data[i];
+        index ++;
+      }
+    }
+    data = d;
+  }
 }
