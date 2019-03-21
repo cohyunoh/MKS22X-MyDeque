@@ -43,15 +43,22 @@ public class MyDeque<E>{
     return ans;
   }
   public void addFirst(E element){
-    if(size)
-    int index = -1;
-    if(start - 1 < 0){
-      index = data.length - 1;
+    if(size == 0){
+      data[start] = element;
+      size ++;
     }else{
-      index = start - 1;
-    }
-    for(int i = index; i >=0; i--){
-      if()
+      int index = -1;
+      if(start - 1 < 0){
+        index = data.length - 1;
+      }else{
+        index = start - 1;
+      }
+      for(int i = index; i >=0; i--){
+        if(data[i] == null){
+          data[i] = element;
+          start = i;
+        }
+      }
     }
   }
   public void addLast(E element){ }
