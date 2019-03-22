@@ -103,6 +103,7 @@ public class MyDeque<E>{
       }else{
         start += 1;
       }
+      size--;
       return returnVal;
     }
   }
@@ -118,6 +119,7 @@ public class MyDeque<E>{
       }else{
         end -= 1;
       }
+      size --;
       return returnVal;
     }
   }
