@@ -161,4 +161,9 @@ public class MyDeque<E>{
     start = 0;
     end = index - 1;
   }
+  /*
+  public E[] getData(){
+    return data;
+  }
+  */
 }
