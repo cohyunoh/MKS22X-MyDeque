@@ -93,5 +93,15 @@ public class tester{
     System.out.println("Size: " + dec.size());
     System.out.println("First Element: " + dec.getFirst());
     System.out.println("Last Element: " + dec.getLast());
+    dec.addFirst(null);
+    System.out.println(dec);
+    System.out.println("Size: " + dec.size());
+    System.out.println("First Element: " + dec.getFirst());
+    System.out.println("Last Element: " + dec.getLast());
+    dec.addLast(null);
+    System.out.println(dec);
+    System.out.println("Size: " + dec.size());
+    System.out.println("First Element: " + dec.getFirst());
+    System.out.println("Last Element: " + dec.getLast());
   }
 }
