@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
@@ -86,33 +87,49 @@ public class MyDeque<E>{
   }
 
   public E removeFirst(){
-    E returnVal = data[start];
-    data[start] = null;
-    if(start + 1 >= data.length){
-      start = 0;
+    if(size == 0){
+      throw new NoSuchElementException("Deque has size of zero");
     }else{
-      start += 1;
+      E returnVal = data[start];
+      data[start] = null;
+      if(start + 1 >= data.length){
+        start = 0;
+      }else{
+        start += 1;
+      }
+      return returnVal;
     }
-    return returnVal;
   }
 
   public E removeLast(){
-    E returnVal = data[end];
-    data[end] = null;
-    if(end - 1 < 0){
-      end = data.length - 1;
+    if(size == 0){
+      throw new NoSuchElementException("Deque has size of zero");
     }else{
-      end -= 1;
+      E returnVal = data[end];
+      data[end] = null;
+      if(end - 1 < 0){
+        end = data.length - 1;
+      }else{
+        end -= 1;
+      }
+      return returnVal;
     }
-    return returnVal;
   }
 
   public E getFirst(){
-    return data[start];
+    if(size == 0){
+      throw new NoSuchElementException("Deque has size of zero");
+    }else{
+      return data[start];
+    }
   }
 
   public E getLast(){
-    return data[end];
+    if(size == 0){
+      throw new NoSuchElementException("Deque has size of zero");
+    }else{
+      return data[end];
+    }
   }
 
   private void resize(){
