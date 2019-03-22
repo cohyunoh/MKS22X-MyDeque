@@ -44,6 +44,9 @@ public class MyDeque<E>{
     return ans;
   }
   public void addFirst(E element){
+    if(element == null){
+      throw new NullPointerException("Null is not a valid element to add");
+    }
     if(size == 0){
       data[start] = element;
       size ++;
@@ -65,6 +68,9 @@ public class MyDeque<E>{
     }
   }
   public void addLast(E element){
+    if(element == null){
+      throw new NullPointerException("Null is not a valid element to add");
+    }
     if(size == 0){
       data[end] = element;
       size ++;
