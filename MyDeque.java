@@ -28,13 +28,17 @@ public class MyDeque<E>{
     for(int i = start; i < data.length; i++){
       if(data[i] != null){
         ans += data[i];
-        ans += " ";
+        if(i != end){
+          ans += " ";
+        }
       }
     }
     for(int i = 0; i < start; i++){
       if(data[i] != null){
         ans += data[i];
-        ans += " ";
+        if(i != end){
+          ans += " ";
+        }
       }
     }
     ans += "}";
