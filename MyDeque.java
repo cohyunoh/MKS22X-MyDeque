@@ -53,12 +53,7 @@ public class MyDeque<E>{
       if(size == data.length){
         resize();
       }
-      int index;
-      if(start - 1 < 0){
-        index = data.length - 1;
-      }else{
-        index = start - 1;
-      }
+      int index = (start - 1 + data.length) % data.length;
       if(data[index] == null){
         data[index] = element;
         start = index;
@@ -80,14 +75,9 @@ public class MyDeque<E>{
       if(size == data.length){
         resize();
       }
-      int index;
-      if(end + 1 > data.length){
-        index = 1;
-      }else{
-        index = (end + 1 + data.length) % data.length;
-      }
+      int index = (end + 1 + data.length) % data.length;
       if(data[index] == null){
-        data[index] = element;
+        data[index - 1] = element;
         end = index;
         size ++;
       }
