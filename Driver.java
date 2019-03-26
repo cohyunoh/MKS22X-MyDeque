@@ -110,6 +110,11 @@ public class Driver {
 				deque.addLast(i);
 				comp.addLast(i);
 				if (!edge_check(comp, deque)) {
+					System.out.println(deque.getFirst());
+					System.out.println(deque.getLast());
+					System.out.println(comp.getFirst());
+					System.out.println(comp.getLast());
+					deque.toStringDebug();
 					System.out.println(message(old+".addLast("+i+")", gist_string(comp), gist_string(deque)));
 					break;
 				}

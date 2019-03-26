@@ -50,6 +50,8 @@ public class MyDeque<E>{
     }
     if(size == 0){
       data[start] = element;
+      end = end + 1 + data.length;
+      end = end % data.length;
       size ++;
     }else{
       if(size == data.length){
@@ -73,23 +75,24 @@ public class MyDeque<E>{
       throw new NullPointerException("Null is not a valid element to add");
     }
     if(size == 0){
-      data[end%data.length] = element;
-      size ++;
-      end = end+1+data.length;
+      data[start] = element;
+      end = end + 1 + data.length;
       end = end % data.length;
+      size ++;
+
     }else{
       if(size == data.length){
         resize();
       }
       int index;
-      if(end + 1 >= data.length){
+      if(end + 1 > data.length){
         index = 0;
       }else{
         index = end + 1;
       }
       if(data[index] == null){
         data[index] = element;
-        end = index;
+        end = (index + 1 + data.length) % data.length;
         size ++;
       }
     }
@@ -100,6 +103,7 @@ public class MyDeque<E>{
       throw new NoSuchElementException("Deque has size of zero");
     }else{
       E returnVal = data[start];
+      data[start] = null;
       if(start + 1 > data.length){
         start = 0;
       }else{
@@ -115,6 +119,7 @@ public class MyDeque<E>{
       throw new NoSuchElementException("Deque has size of zero");
     }else{
       E returnVal = data[end];
+      data[end] = null;
       if(end - 1 < 0){
         end = data.length;
       }else{
