@@ -200,6 +200,8 @@ public class Driver {
 				deque.addLast(i);
 				comp.addLast(i);
 				if (!edge_check(comp, deque)) {
+					deque.toStringDebug();
+				 //System.exit(1);
 					out.add(message(old+".addLast("+i+")", gist_string(comp), gist_string(deque)));
 					break;
 				}
@@ -245,6 +247,8 @@ public class Driver {
 					break;
 				}
 			} catch (Exception e) {
+				deque.toStringDebug();
+				e.printStackTrace();
 				out.add(message(old+".addLast("+i+")", gist_string(comp), e.toString()));
 				break;
 			}

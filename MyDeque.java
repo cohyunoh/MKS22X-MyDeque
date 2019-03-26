@@ -1,4 +1,5 @@
 import java.util.NoSuchElementException;
+import java.util.Arrays;
 public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
@@ -27,17 +28,13 @@ public class MyDeque<E>{
     for(int i = start; i < data.length; i++){
       if(data[i] != null){
         ans += data[i];
-        if(i != end){
-          ans += " ";
-        }
+        ans += " ";
       }
     }
     for(int i = 0; i < start; i++){
       if(data[i] != null){
         ans += data[i];
-        if(i != end){
-          ans += " ";
-        }
+        ans += " ";
       }
     }
     ans += "}";
@@ -54,7 +51,7 @@ public class MyDeque<E>{
       if(size == data.length){
         resize();
       }
-      int index = -1;
+      int index;
       if(start - 1 < 0){
         index = data.length - 1;
       }else{
@@ -72,13 +69,15 @@ public class MyDeque<E>{
       throw new NullPointerException("Null is not a valid element to add");
     }
     if(size == 0){
-      data[end] = element;
+      data[end%data.length] = element;
       size ++;
+      end = end+1+data.length;
+      end = end % data.length;
     }else{
       if(size == data.length){
         resize();
       }
-      int index = -1;
+      int index;
       if(end + 1 >= data.length){
         index = 0;
       }else{
@@ -97,8 +96,7 @@ public class MyDeque<E>{
       throw new NoSuchElementException("Deque has size of zero");
     }else{
       E returnVal = data[start];
-      data[start] = null;
-      if(start + 1 >= data.length){
+      if(start + 1 > data.length){
         start = 0;
       }else{
         start += 1;
@@ -113,9 +111,8 @@ public class MyDeque<E>{
       throw new NoSuchElementException("Deque has size of zero");
     }else{
       E returnVal = data[end];
-      data[end] = null;
       if(end - 1 < 0){
-        end = data.length - 1;
+        end = data.length;
       }else{
         end -= 1;
       }
@@ -136,7 +133,8 @@ public class MyDeque<E>{
     if(size == 0){
       throw new NoSuchElementException("Deque has size of zero");
     }else{
-      return data[end];
+
+      return data[(end - 1 + data.length) % data.length];
     }
   }
 
@@ -166,4 +164,10 @@ public class MyDeque<E>{
     return data;
   }
   */
+  public void toStringDebug(){
+    System.out.println(Arrays.toString(data));
+    System.out.println("Size: " + size);
+    System.out.println("First: " + start);
+    System.out.println("Last: " + end);
+  }
 }
