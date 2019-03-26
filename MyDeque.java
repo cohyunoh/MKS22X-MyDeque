@@ -76,8 +76,8 @@ public class MyDeque<E>{
         resize();
       }
       int index = (end + 1 + data.length) % data.length;
-      if(data[index] == null){
-        data[index - 1] = element;
+      if(data[(index - 1 + data.length) % data.length] == null){
+        data[(index - 1 + data.length) % data.length] = element;
         end = index;
         size ++;
       }
@@ -90,11 +90,8 @@ public class MyDeque<E>{
     }else{
       E returnVal = data[start];
       data[start] = null;
-      if(start + 1 >= data.length){
-        start = 0;
-      }else{
-        start += 1;
-      }
+      start = start + 1 + data.length;
+      start = start % data.length;
       size--;
       return returnVal;
     }
@@ -104,13 +101,11 @@ public class MyDeque<E>{
     if(size == 0){
       throw new NoSuchElementException("Deque has size of zero");
     }else{
-      E returnVal = data[end - 1];
-      data[end - 1] = null;
-      if(end - 1 < -1){
-        end = data.length;
-      }else{
-        end -= 1;
-      }
+      int index = end - 1 + data.length;
+      index = index % data.length;
+      E returnVal = data[index];
+      data[index] = null;
+      end = index;
       size --;
       return returnVal;
     }
