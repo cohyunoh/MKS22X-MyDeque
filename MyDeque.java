@@ -25,17 +25,11 @@ public class MyDeque<E>{
   }
   public String toString(){
     String ans = "{";
-    for(int i = start; i < data.length; i++){
-      if(data[i] != null){
-        ans += data[i];
-        ans += " ";
-      }
-    }
-    for(int i = 0; i < start; i++){
-      if(data[i] != null){
-        ans += data[i];
-        ans += " ";
-      }
+    int i = start;
+    while(i != end){
+      ans += data[i];
+      ans += " ";
+      i = (i + 1) % data.length;
     }
     ans += "}";
     return ans;
@@ -129,9 +123,10 @@ public class MyDeque<E>{
     E[] d = (E[])new Object[data.length * 2];
     boolean done = false;
     int index = 0;
-    for(int i = start; i != end; i = (i + 1 + data.length) % data.length){
+    for(int i = start; i != end; i += 0){
       d[index] = data[i];
       index ++;
+      i = (i+1) % data.length;
     }
     data = d;
     start = 0;
