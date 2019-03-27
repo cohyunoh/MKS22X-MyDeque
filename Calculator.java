@@ -9,9 +9,10 @@ public class Calculator{
       double ans = 0.0;
       Scanner string = new Scanner(s);
       while(string.hasNext()){
+        System.out.println(dec);
         String inpt = string.next();
         if(operators.contains(inpt)){
-          double comb = operate((double)Integer.parseInt(dec.removeFirst()), (double)Integer.parseInt(dec.removeFirst()), inpt);
+          double comb = operate(Double.parseDouble(dec.removeFirst()), Double.parseDouble(dec.removeFirst()), inpt);
           ans += comb;
           inpt = (int)comb + " ";
         }
@@ -23,20 +24,20 @@ public class Calculator{
 
     private static double operate(double inpt1, double inpt2, String operator){
       if(operator.equals("+")){
-        return inpt1 + inpt2;
+        return inpt2 + inpt1;
       }else if(operator.equals("-")){
-        return inpt1 - inpt2;
+        return inpt2 - inpt1;
       }else if(operator.equals("*")){
-        return inpt1 * inpt2;
+        return inpt2 * inpt1;
       }else if(operator.equals("/")){
-        return inpt1 / inpt2;
+        return inpt2 / inpt1;
       }else if(operator.equals("%")){
-        return inpt1 % inpt2;
+        return inpt2 % inpt1;
       }
       return 0.0;
     }
 
     public static void main(String[] args) {
-      System.out.println(eval("2 4 71 8.5 + - * 5 + "));
+      System.out.println(eval("11 3 - 4 + 2.5 * "));
     }
 }
