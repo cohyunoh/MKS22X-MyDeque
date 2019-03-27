@@ -108,6 +108,7 @@ public class tester{
     System.out.println("Size: " + dec.size());
     System.out.println("First Element: " + dec.getFirst());
     System.out.println("Last Element: " + dec.getLast());
+    /*
     //System.out.println(Arrays.toString(dec.getData()));
     /*
     dec.addFirst(null);

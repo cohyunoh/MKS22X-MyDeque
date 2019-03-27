@@ -72,13 +72,9 @@ public class MyDeque<E>{
       size ++;
 
     }else{
-      if(size == data.length){
-        resize();
-      }
-      int index = (end + 1 + data.length) % data.length;
-      if(data[(index - 1 + data.length) % data.length] == null){
-        data[(index - 1 + data.length) % data.length] = element;
-        end = index;
+      if(data[end % data.length] == null){
+        data[end % data.length] = element;
+        end = end % data.length + 1;
         size ++;
       }
     }
@@ -133,21 +129,13 @@ public class MyDeque<E>{
     E[] d = (E[])new Object[data.length * 2];
     boolean done = false;
     int index = 0;
-    for (int i = start; i < data.length; i++){
-      if(data[i] != null){
-        d[index] = data[i];
-        index ++;
-      }
-    }
-    for(int i = 0; i < start; i++){
-      if(data[i] != null){
-        d[index] = data[i];
-        index ++;
-      }
+    for(int i = start; i != end; i = (i + 1 + data.length) % data.length){
+      d[index] = data[i];
+      index ++;
     }
     data = d;
     start = 0;
-    end = index - 1;
+    end = index;
   }
   /*
   public E[] getData(){
