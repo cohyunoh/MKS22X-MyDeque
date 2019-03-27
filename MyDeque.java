@@ -26,10 +26,15 @@ public class MyDeque<E>{
   public String toString(){
     String ans = "{";
     int i = start;
-    while(i != end){
-      ans += data[i];
-      ans += " ";
+    while(i != (end - 1 + data.length) % data.length){
+      if(data[i] != null){
+        ans += data[i];
+        ans += " ";
+      }
       i = (i + 1) % data.length;
+    }
+    if(data[i] != null){
+      ans += data[i];
     }
     ans += "}";
     return ans;
@@ -40,8 +45,8 @@ public class MyDeque<E>{
     }
     if(size == 0){
       data[start] = element;
-      end = end + 1 + data.length;
-      end = end % data.length;
+      end = end + 1;
+      end = end % (data.length + 1);
       size ++;
     }else{
       if(size == data.length){
@@ -66,6 +71,9 @@ public class MyDeque<E>{
       size ++;
 
     }else{
+      if(size == data.length){
+        resize();
+      }
       if(data[end % data.length] == null){
         data[end % data.length] = element;
         end = end % data.length + 1;
@@ -122,15 +130,21 @@ public class MyDeque<E>{
     @SuppressWarnings("unchecked")
     E[] d = (E[])new Object[data.length * 2];
     boolean done = false;
+    int i = start;
     int index = 0;
-    for(int i = start; i != end; i += 0){
-      d[index] = data[i];
+    while(i != (end - 1 + data.length) % data.length){
+      if(data[i] != null){
+        d[index] = data[i];
+      }
+      i = (i + 1) % data.length;
       index ++;
-      i = (i+1) % data.length;
+    }
+    if(data[i] != null){
+      d[index] = data[i];
     }
     data = d;
     start = 0;
-    end = index;
+    end = size;
   }
   /*
   public E[] getData(){
