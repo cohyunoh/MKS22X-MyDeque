@@ -6,20 +6,18 @@ public class Calculator{
     public static double eval(String s){
       MyDeque<String> dec = new MyDeque<String>();
       String operators = "-+*/%";
-      double ans = 0.0;
       Scanner string = new Scanner(s);
       while(string.hasNext()){
         System.out.println(dec);
         String inpt = string.next();
         if(operators.contains(inpt)){
           double comb = operate(Double.parseDouble(dec.removeFirst()), Double.parseDouble(dec.removeFirst()), inpt);
-          ans += comb;
           inpt = (int)comb + " ";
         }
         dec.addFirst(inpt);
       }
-
-      return ans;
+      System.out.println(dec);
+      return Double.parseDouble(dec.getFirst());
     }
 
     private static double operate(double inpt1, double inpt2, String operator){
