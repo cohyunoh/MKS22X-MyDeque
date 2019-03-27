@@ -2,7 +2,6 @@ public class CalcDriver{
   public static void main(String[]args){
     String[] inputs = {
       //a big pile of single operation tests
-      /*
       "1 1 +",
       "6 4 -",
       "3 3 -",
@@ -26,7 +25,6 @@ public class CalcDriver{
       "8 2 + 99 9 - * 2 + 9 -",
       "1 2 3 4 5 + * - -",
       //more than ten operators on stack
-      */
       "4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 + + + + + + + + + + + + + + + + + + + + + + + + + +",
       "2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * / * / * / * / * / * / * / * / * / *"
       //

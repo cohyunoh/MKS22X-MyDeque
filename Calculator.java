@@ -8,16 +8,16 @@ public class Calculator{
       String operators = "-+*/%";
       Scanner string = new Scanner(s);
       while(string.hasNext()){
-        System.out.println(dec);
+        //System.out.println(dec);
         String inpt = string.next();
         if(operators.contains(inpt)){
-          double comb = operate(Double.parseDouble(dec.removeFirst()), Double.parseDouble(dec.removeFirst()), inpt);
-          inpt = (int)comb + " ";
+          double comb = operate(Double.parseDouble(dec.removeLast()), Double.parseDouble(dec.removeLast()), inpt);
+          inpt = comb + " ";
         }
-        dec.addFirst(inpt);
+        dec.addLast(inpt);
       }
-      System.out.println(dec);
-      return Double.parseDouble(dec.getFirst());
+      //System.out.println(dec);
+      return Double.parseDouble(dec.getLast());
     }
 
     private static double operate(double inpt1, double inpt2, String operator){
